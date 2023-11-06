@@ -1,5 +1,6 @@
 const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
+const CopyWebpackPlugin = require('copy-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 
 module.exports = {
@@ -22,8 +23,17 @@ module.exports = {
                     process.env.NODE_ENV === 'production' ? MiniCssExtractPlugin.loader : 'style-loader',
                     'css-loader',
                 ],
+            },
+            {
+                test: /\.(png|jpe?g|gif|svg)$/,
+                use: [{
+                    loader: 'file-loader',
+                    options: {
+                        name: './assets/[name].[ext]' // Define the output path and filename
+                    }
+                }]
             }
-        ],
+        ]
     },
     plugins: [
         new MiniCssExtractPlugin({
@@ -34,6 +44,13 @@ module.exports = {
             title: 'BetLightening Tips',
             template: './public/index.html'
         }),
+
+        new CopyWebpackPlugin({
+            patterns: [{
+                from: './public/assets', // Source directory for your images
+                to: './assets', // Destination directory in the build output
+            }]
+        })
     ],
     devServer: {
         static: path.join(__dirname, 'public'),
