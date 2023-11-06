@@ -1,45 +1,44 @@
-import React, { useState } from 'react';
+import React, { useState } from 'react'
+import { Text } from './components/component.style'
+import './index.css'
+
+
+/* Styles without syled-components */
+const styles = {
+    div: {
+        margin: 10,
+        padding: 30,
+        color: 'lightblue',
+        textAlign: 'center',
+        backgroundColor: 'blue'
+    },
+    h1: {
+        color: 'white'
+    }
+}
 
 function App({ name }) {
-    const [num, setNum] = useState(0);
-    
-    /* All styles defined */
-    const styles = {
-        div: {
-            margin: 10,
-            padding: 30,
-            color: 'lightblue',
-            textAlign: 'center',
-            backgroundColor: 'blue'
-        },
-        h1: {
-            color: 'white'
-        },
-        button: {
-            cursor: 'pointer',
-            color: '#fff',
-            fontWeight: 'bold',
-            display: 'flex',
-            justifyContent: 'center',
-            margin: 'auto',
-            fontSize: '35px',
-            padding: '30px 55px',
-            backgroundColor: 'green',
-            border: 'none'
-        }
+    const [num, setNum] = useState(0)
+
+    const Exec = (arg) => {
+        setNum(num + arg)
+        window.alert(`You clicked the button ${num} times`)
     }
     
     /* Return JSX output to DOM */
     return (
         <>
             <div style={styles.div}>
-                <h1 style={styles.h1}>React App with Webpack!</h1>
+                <h1 style={styles.h1}>Hello {name}, Welcome to BetLightening Tips!</h1>
             </div>
             
             <br/>
-            <button style={styles.button} onClick={() => setNum(num+1)}>Click Me: {num}</button>
+            <button onClick={() => Exec(1)}>Click Me: {num}</button>
+            <br />
+            <br />
+            <Text color='yellow'>This is a footer nav designed with React Styled-Component</Text>
         </>
-    );
+    )
 }
 
-export default App;
+export default App
