@@ -7,7 +7,7 @@ module.exports = {
     entry: './src/index.jsx',
     output: {
         filename: 'bundle.js',
-        path: path.resolve('../www'),
+        path: path.resolve('../build'),
     },
     module: {
         rules: [{
@@ -41,7 +41,7 @@ module.exports = {
         }),
 
         new HtmlWebpackPlugin({
-            title: 'BetLightening Tips',
+            title: 'React Webpack',
             template: './public/index.html'
         }),
 
