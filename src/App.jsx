@@ -29,7 +29,7 @@ function App({ name }) {
     return (
         <>
             <div style={styles.div}>
-                <h1 style={styles.h1}>Hello {name}, Welcome to BetLightening Tips!</h1>
+                <h1 style={styles.h1}>Hello {name}, Welcome to React Webpack!</h1>
             </div>
             
             <br/>
