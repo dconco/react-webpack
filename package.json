@@ -1,7 +1,7 @@
 {
     "name": "React Webpack",
     "version": "1.0.0",
-    "description": "Unlock the secrets to betting success with our expert tips and predictions 🏆",
+    "description": "",
     "main": "index.jsx",
     "scripts": {
         "dev": "webpack serve --mode development",
